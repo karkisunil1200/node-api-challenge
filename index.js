@@ -14,3 +14,12 @@ Go code!
 */
 
 const express = require('express');
+
+const server = express();
+
+server.get('/', (req, res) => {
+  res.send(`<h2>Welcome to Hubs </h2>`);
+});
+
+const port = 5000;
+server.listen(port, () => console.log(`Server running on localhost:${5000}`));
