@@ -1,12 +1,8 @@
 const express = require('express');
 
-const Hubs = require('../data/helpers/projectModel');
-
-const actionRouter = require('./actionRouter');
+const Hubs = require('../data/helpers/actionModel');
 
 const router = express.Router();
-
-router.use('/action', actionRouter);
 
 router.get('/', (req, res) => {
   Hubs.get()
@@ -31,9 +27,9 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/post', (req, res) => {
-  const project = req.body;
-  console.log(project);
-  Hubs.insert(project)
+  const post = req.body;
+  console.log(post);
+  Hubs.insert(post)
     .then(hubs => {
       res.status(200).json(hubs);
     })
