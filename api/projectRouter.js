@@ -14,4 +14,16 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+  const {id} = req.params;
+
+  Hubs.get(id)
+    .then(hubs => {
+      res.status(200).json(hubs);
+    })
+    .catch(err => {
+      res.status(500).json({message: 'Invalid id'});
+    });
+});
+
 module.exports = router;
